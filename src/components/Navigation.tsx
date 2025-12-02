@@ -9,7 +9,20 @@ export function Navigation() {
     <AppBar position="static">
       <Toolbar>
         <SecurityIcon sx={{ mr: 2 }} />
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography
+          variant="h6"
+          component={Link}
+          href="/"
+          sx={{
+            flexGrow: 1,
+            textDecoration: "none",
+            color: "inherit",
+            cursor: "pointer",
+            "&:hover": {
+              opacity: 0.8,
+            },
+          }}
+        >
           Expiry Alerter
         </Typography>
         <Box sx={{ display: "flex", gap: 2 }}>

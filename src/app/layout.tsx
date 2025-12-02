@@ -11,6 +11,13 @@ if (typeof window === "undefined") {
 export const metadata: Metadata = {
   title: "Expiry Alerter",
   description: "Track and manage secret and license expiry dates",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: "/apple-touch-icon.svg",
+  },
 };
 
 export default function RootLayout({

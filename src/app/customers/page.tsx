@@ -24,6 +24,8 @@ import { ConfirmDialog } from "@/components/ConfirmDialog";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import { useRouter } from "next/navigation";
 
 interface Customer {
   id: string;
@@ -36,6 +38,7 @@ interface Customer {
 }
 
 export default function CustomersPage() {
+  const router = useRouter();
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [loading, setLoading] = useState(true);
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -205,9 +208,15 @@ export default function CustomersPage() {
                       {customer._count.secrets}
                     </TableCell>
                     <TableCell>
-                      {new Date(customer.createdAt).toLocaleDateString("de-DE")}
+                      {new Date(customer.createdAt).toLocaleDateString("en-GB")}
                     </TableCell>
                     <TableCell align="right">
+                      <IconButton
+                        size="small"
+                        onClick={() => router.push(`/customers/${customer.id}`)}
+                      >
+                        <VisibilityIcon />
+                      </IconButton>
                       <IconButton
                         color="primary"
                         onClick={() => handleEdit(customer)}

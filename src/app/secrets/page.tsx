@@ -29,6 +29,8 @@ import { ConfirmDialog } from "@/components/ConfirmDialog";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import { useRouter } from "next/navigation";
 
 interface Customer {
   id: string;
@@ -46,6 +48,7 @@ interface Secret {
 }
 
 export default function SecretsPage() {
+  const router = useRouter();
   const [secrets, setSecrets] = useState<Secret[]>([]);
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [loading, setLoading] = useState(true);
@@ -287,10 +290,16 @@ export default function SecretsPage() {
                       </Typography>
                     </TableCell>
                     <TableCell>
-                      {new Date(secret.expiryDate).toLocaleDateString("de-DE")}
+                      {new Date(secret.expiryDate).toLocaleDateString("en-GB")}
                     </TableCell>
                     <TableCell>{getExpiryChip(secret.expiryDate)}</TableCell>
                     <TableCell align="right">
+                      <IconButton
+                        size="small"
+                        onClick={() => router.push(`/secrets/${secret.id}`)}
+                      >
+                        <VisibilityIcon />
+                      </IconButton>
                       <IconButton
                         color="primary"
                         onClick={() => handleEdit(secret)}

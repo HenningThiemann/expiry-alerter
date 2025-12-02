@@ -177,7 +177,7 @@ export default function Home() {
                           sx={{ mt: 1 }}
                         >
                           {new Date(secret.expiryDate).toLocaleDateString(
-                            "de-DE"
+                            "en-GB"
                           )}
                         </Typography>
                       </CardContent>
