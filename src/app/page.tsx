@@ -104,9 +104,14 @@ export default function Home() {
             mb: 4,
           }}
         >
-          <Typography variant="h4" component="h1">
-            Dashboard
-          </Typography>
+          <Box>
+            <Typography variant="h4" component="h1">
+              Dashboard
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
+              Automatic Notifications: Daily at 12:00 PM
+            </Typography>
+          </Box>
           <Button
             variant="contained"
             color="primary"

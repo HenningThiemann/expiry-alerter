@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/lib/ThemeProvider";
+import { initializeApp } from "@/lib/init";
 import "./globals.css";
+
+// Initialize cron jobs on app start
+if (typeof window === "undefined") {
+  initializeApp();
+}
 
 export const metadata: Metadata = {
   title: "Expiry Alerter",

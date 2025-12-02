@@ -52,10 +52,10 @@ export function CustomerDialog({
   };
 
   return (
-    <Dialog 
-      open={open} 
-      onClose={onClose} 
-      maxWidth="sm" 
+    <Dialog
+      open={open}
+      onClose={onClose}
+      maxWidth="sm"
       fullWidth
       TransitionProps={{ onEnter: handleEnter }}
     >

@@ -53,9 +53,7 @@ export function SecretDialog({
     if (secret) {
       setName(secret.name);
       setDescription(secret.description || "");
-      setExpiryDate(
-        new Date(secret.expiryDate).toISOString().split("T")[0]
-      );
+      setExpiryDate(new Date(secret.expiryDate).toISOString().split("T")[0]);
       setCustomerId(secret.customerId);
     } else {
       setName("");
@@ -77,10 +75,10 @@ export function SecretDialog({
   };
 
   return (
-    <Dialog 
-      open={open} 
-      onClose={onClose} 
-      maxWidth="sm" 
+    <Dialog
+      open={open}
+      onClose={onClose}
+      maxWidth="sm"
       fullWidth
       TransitionProps={{ onEnter: handleEnter }}
     >

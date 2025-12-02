@@ -6,9 +6,18 @@ A Next.js application for tracking and managing secret and license expiry dates 
 
 - **Customer Management**: Create, update, and delete customers with unique MS Teams webhook URLs
 - **Secret/License Tracking**: Track expiry dates for secrets and licenses per customer
-- **MS Teams Notifications**: Automatic webhook notifications to MS Teams when secrets are within 2 weeks of expiry
+- **Automatic Daily Notifications**: Automatic webhook notifications sent daily at 12:00 PM CET to MS Teams when secrets are within 2 weeks of expiry
+- **Manual Notifications**: Option to manually trigger notifications via the dashboard
 - **Material Design UI**: Modern, responsive interface using Material-UI
 - **PostgreSQL Database**: Persistent storage with Prisma ORM
+
+## Automatic Notifications
+
+The application automatically sends notifications daily at 12:00 PM (CET) for all secrets expiring within the next 2 weeks.
+
+- Notifications continue daily until the secret is either deleted or the expiry date is more than 2 weeks away
+- No configuration needed - notifications start automatically when the application starts
+- Manual notifications can also be triggered via the "Send Notifications Now" button on the dashboard
 
 ## Getting Started
 
@@ -88,10 +97,10 @@ docker run -d \
 
 ### Environment Variables
 
-| Variable | Description | Default |
-|----------|-------------|---------|
+| Variable       | Description                  | Default  |
+| -------------- | ---------------------------- | -------- |
 | `DATABASE_URL` | PostgreSQL connection string | Required |
-| `PORT` | Application port | `3000` |
+| `PORT`         | Application port             | `3000`   |
 
 ## API Endpoints
 

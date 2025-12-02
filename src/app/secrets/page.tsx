@@ -183,13 +183,15 @@ export default function SecretsPage() {
     }
     if (days <= 3) {
       return (
-        <Chip label={`${days} day${days === 1 ? "" : "s"}`} color="error" size="small" />
+        <Chip
+          label={`${days} day${days === 1 ? "" : "s"}`}
+          color="error"
+          size="small"
+        />
       );
     }
     if (days <= 14) {
-      return (
-        <Chip label={`${days} days`} color="warning" size="small" />
-      );
+      return <Chip label={`${days} days`} color="warning" size="small" />;
     }
     return <Chip label={`${days} days`} color="success" size="small" />;
   };
