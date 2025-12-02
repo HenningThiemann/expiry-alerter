@@ -48,6 +48,51 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Docker Deployment
+
+### Quick Start with Docker Compose
+
+The easiest way to run the application is using Docker Compose:
+
+```bash
+# Start the application and database
+docker-compose up -d
+
+# Run database migrations (first time only)
+docker-compose run --rm migrate
+
+# View logs
+docker-compose logs -f app
+```
+
+The application will be available at [http://localhost:3000](http://localhost:3000).
+
+### Building the Docker Image
+
+To build the Docker image manually:
+
+```bash
+docker build -t expiry-alerter .
+```
+
+### Running with External Database
+
+If you have an existing PostgreSQL database:
+
+```bash
+docker run -d \
+  -p 3000:3000 \
+  -e DATABASE_URL="postgresql://user:password@host:5432/dbname?schema=public" \
+  expiry-alerter
+```
+
+### Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `DATABASE_URL` | PostgreSQL connection string | Required |
+| `PORT` | Application port | `3000` |
+
 ## API Endpoints
 
 ### Customers
@@ -87,6 +132,7 @@ This will send MS Teams webhook messages to all customers with secrets expiring 
 - **Database**: PostgreSQL with Prisma ORM
 - **UI**: Material-UI (MUI)
 - **Language**: TypeScript
+- **Containerization**: Docker & Docker Compose
 
 ## License
 
