@@ -27,7 +27,7 @@ export async function sendTeamsNotification(
 
   const message: TeamsMessage = {
     "@type": "MessageCard",
-    "@context": "http://schema.org/extensions",
+    "@context": "https://schema.org/extensions",
     themeColor: "FF0000",
     summary: `Expiring Secrets Alert for ${customerName}`,
     sections: [
